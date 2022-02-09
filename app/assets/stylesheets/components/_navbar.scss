@@ -1,6 +1,32 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  padding: 8px 0px 8px 0px;
+  display: flex;
+  font-size: 16px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.2);
+
+  a {
+    text-decoration: none;
+    margin-left: 10px;
+  }
+
+  .logo {
+    color: #3b8892;
+    &:hover {
+      color: #51C4D3;
+    }
+  }
+}
+
+.lists {
+  font-size: 16px;
+  color: black;
+
+  &:hover {
+    text-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+    color: black;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {

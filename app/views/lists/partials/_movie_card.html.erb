@@ -1,0 +1,12 @@
+<div class="movie-card">
+  <div class="movie-img" style="background-image: url('<%= bookmark.movie.poster_url %>')">
+  </div>
+  <div class="movie-desc">
+    <p class="movie-title m-0"><strong><%= bookmark.movie.title %></strong> • <%= bookmark.movie.rating %> ⭐️</p>
+    <p class="movie-overview"><%= bookmark.movie.overview %></p>
+    <blockquote><%= bookmark.comment %></blockquote>
+    <div class="delete-movie">
+      <%= link_to "delete", bookmark_path(bookmark), method: :delete, class: "delete-link", data: {confirm: "Are you sure?"} %>
+    </div>
+  </div>
+</div>

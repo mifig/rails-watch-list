@@ -1,3 +1,23 @@
-<h1><%= @list[:name] %></h1>
+<div class="banner" style="background-image: url(<%= @list.image_url %>)">
+  <h1><%= @list[:name] %></h1>
+  <p><%= @list.movies.count %> movies</p>
+</div>
 
-<%= link_to "Back", lists_path %>
+<div class="container">
+  <div class="add-movie" data-controller="form-dropdown">
+    <%= link_to "Add a Movie", "", class:"btn btn-primary", data: { action: "click->form-dropdown#clickAddMovie" } %>
+    
+    <div class="row d-none movie-form" data-form-dropdown-target="form">
+      <%= simple_form_for [@list, @bookmark = Bookmark.new] do |f| %>
+        <%= f.input :comment %>
+        <%= f.association :movie %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="movie-cards-grid mb-3">
+    <% @list.bookmarks.each do |bookmark| %>
+      <%= render "lists/partials/movie_card", bookmark: bookmark %>
+    <% end %>
+  </div>
+</div>

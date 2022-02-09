@@ -1,9 +1,13 @@
-<h1>My lists:</h1>
+<div class="banner lists-banner" style="background-image: url('https://vejario.abril.com.br/wp-content/uploads/2020/04/Cinemark_Sala-Comum-02_0.jpg?quality=70&strip=info&resize=680,453')">
+  <h1>Save any kind of Movies!</h1>
+</div>
 
-<ul>
-  <% @lists.each do |list| %>
-    <li><%= link_to list[:name], list_path(list) %></li>
-  <% end %>
-</ul>
-
-<%= link_to "Create List", new_list_path %>
+<div class="container">
+  <div class="lists-grid">
+    <% @lists.each do |list| %>
+      <div class="list-card" style="background-image: url(<%= list.image_url %>)">
+        <%= link_to list.name, list_path(list) %>
+      </div>
+    <% end %>
+  </div>
+</div>
