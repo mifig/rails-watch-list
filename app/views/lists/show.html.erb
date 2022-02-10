@@ -6,10 +6,6 @@
 
 <div class="container">
   <div class="movie-cards-grid mb-4 mt-4">
-    <% @list.bookmarks.each do |bookmark| %>
-      <%= render "lists/partials/movie_card", bookmark: bookmark %>
-    <% end %>
-
     <div class="movie-card black-card" data-controller="form-dropdown" data-action="click->form-dropdown#clickAddMovie">
       <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a Movie</p>
       
@@ -21,5 +17,9 @@
         <% end %>
       </div>
     </div>
+
+    <% @list.bookmarks.each do |bookmark| %>
+      <%= render "lists/partials/movie_card", bookmark: bookmark %>
+    <% end %>
   </div>
 </div>
