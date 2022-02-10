@@ -1,23 +1,25 @@
 <div class="banner" style="background-image: url(<%= @list.image_url %>)">
+</div>
+<div class="banner-info">
   <h1><%= @list[:name] %></h1>
-  <p><%= @list.movies.count %> movies</p>
 </div>
 
 <div class="container">
-  <div class="add-movie" data-controller="form-dropdown">
-    <%= link_to "Add a Movie", "", class:"btn btn-primary", data: { action: "click->form-dropdown#clickAddMovie" } %>
-    
-    <div class="row d-none movie-form" data-form-dropdown-target="form">
-      <%= simple_form_for [@list, @bookmark = Bookmark.new] do |f| %>
-        <%= f.input :comment %>
-        <%= f.association :movie %>
-        <%= f.button :submit, class: "btn btn-success" %>
-      <% end %>
-    </div>
-  </div>
-  <div class="movie-cards-grid mb-3">
+  <div class="movie-cards-grid mb-4 mt-4">
     <% @list.bookmarks.each do |bookmark| %>
       <%= render "lists/partials/movie_card", bookmark: bookmark %>
     <% end %>
+
+    <div class="movie-card black-card" data-controller="form-dropdown" data-action="click->form-dropdown#clickAddMovie">
+      <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a Movie</p>
+      
+      <div class="d-none movie-form" data-form-dropdown-target="form">
+        <%= simple_form_for [@list, @bookmark = Bookmark.new] do |f| %>
+          <%= f.input :comment %>
+          <%= f.association :movie %>
+          <%= f.button :submit, class:"add-movie-btn form-btn" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
