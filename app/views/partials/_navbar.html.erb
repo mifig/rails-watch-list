@@ -1,5 +1,5 @@
-<div class="navbar-lewagon navbar-collapse sticky-top">
-  <%= link_to "MovieTime", lists_path, class: "navbar-brand logo" %>
+<div class="navbar-lewagon navbar-collapse sticky-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
+  <%= link_to "MovieTime", root_path, class: "navbar-brand logo" %>
 
   <div>
     <%= link_to "My Lists", lists_path, class: "navbar-brand lists" %>

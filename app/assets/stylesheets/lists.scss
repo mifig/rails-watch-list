@@ -64,6 +64,9 @@
     padding: 50px 30px;
     line-height: 250px;
     transition: ease 0.5s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   a:hover {
