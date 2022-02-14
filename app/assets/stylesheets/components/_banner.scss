@@ -24,11 +24,28 @@
   width: 50%;
 
   h1 {
+    // color: #FFFCF2;
+    // background: linear-gradient(rgba(236, 5, 142, 0.5), rgba(29, 17, 40, 0.4));
+    // margin: 0;
+    // position: absolute;
+    // left: 23%;
+    // padding: 3px 56px;
+    background-image: linear-gradient(#51c4d375,#51c4d375);
     color: #FFFCF2;
-    background: linear-gradient(rgba(236, 5, 142, 0.5), rgba(29, 17, 40, 0.4));
+    // background: linear-gradient(rgba(236, 5, 142, 0.5), rgba(29, 17, 40, 0.4));
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(29, 17, 40, 0));
     margin: 0;
-    position: absolute;
-    left: 23%;
     padding: 3px 56px;
+    left: 0;
   }
+}
+
+#h1-banner-list {
+  background-image: linear-gradient(#51c4d375,#51c4d375);
+  color: #FFFCF2;
+  // background: linear-gradient(rgba(236, 5, 142, 0.5), rgba(29, 17, 40, 0.4));
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(29, 17, 40, 0));
+  margin: 0;
+  padding: 3px 56px;
+  left: 0;
 }

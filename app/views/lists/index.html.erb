@@ -1,13 +1,27 @@
-<div class="banner lists-banner" style="background-image: url('https://vejario.abril.com.br/wp-content/uploads/2020/04/Cinemark_Sala-Comum-02_0.jpg?quality=70&strip=info&resize=680,453')">
-  <h1>Save any kind of Movies!</h1>
+<div class="banner lists-banner">
+</div>
+<div class="banner-info">
+  <h1 id="h1-banner-list" data-controller="typed-js"></h1>
 </div>
 
 <div class="container">
   <div class="lists-grid">
-    <% @lists.each do |list| %>
-      <div class="list-card" style="background-image: url(<%= list.image_url %>)">
-        <%= link_to list.name, list_path(list) %>
+    <div class="list-card black-card" data-controller="form-dropdown" data-action="click->form-dropdown#clickAddMovie" data-aos="zoom-in" data-aos-duration="2000">
+      <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a List</p>
+      
+      <div class="d-none movie-form" data-form-dropdown-target="form">
+        <%= simple_form_for [@list = List.new] do |f| %>
+          <%= f.input :name, input_html: { class: 'input-form' } %>
+          <%= f.input :image_url, input_html: { class: 'input-form' } %>
+          <%= f.button :submit, class:"add-movie-btn form-btn" %>
+        <% end %>
       </div>
+    </div>
+    
+    <% @lists.each do |list| %>
+        <div class="list-card" style="background-image: url(<%= list.image_url %>)" data-aos="zoom-in" data-aos-duration="2000">
+          <%= link_to list.name, list_path(list) %>
+        </div>
     <% end %>
   </div>
 </div>

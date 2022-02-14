@@ -6,13 +6,13 @@
 
 <div class="container">
   <div class="movie-cards-grid mb-4 mt-4">
-    <div class="movie-card black-card" data-controller="form-dropdown" data-action="click->form-dropdown#clickAddMovie">
+    <div class="movie-card black-card" data-controller="form-dropdown" data-action="click->form-dropdown#clickAddMovie" data-aos="zoom-in" data-aos-duration="2000">
       <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a Movie</p>
       
       <div class="d-none movie-form" data-form-dropdown-target="form">
         <%= simple_form_for [@list, @bookmark = Bookmark.new] do |f| %>
-          <%= f.input :comment %>
-          <%= f.association :movie %>
+          <%= f.input :comment, input_html: { class: 'input-form' } %>
+          <%= f.association :movie, input_html: { class: 'input-form' } %>
           <%= f.button :submit, class:"add-movie-btn form-btn" %>
         <% end %>
       </div>
@@ -21,5 +21,25 @@
     <% @list.bookmarks.each do |bookmark| %>
       <%= render "lists/partials/movie_card", bookmark: bookmark %>
     <% end %>
+  </div>
+
+  <hr>
+
+  <div class="row reviews">
+    <div class="col-6 pe-4 border-right-white">
+      <h2>Reviews</h2>
+      <% @list.reviews.each do |review| %>
+        <p class="review-desc">
+          <%= "⭐️" * review.rating.to_i %><span>less than <%= (Time.now - review.created_at) / 1.minutes < 60 ? "#{((Time.now - review.created_at) / 1.minutes ).round} minutes ago" : "#{((Time.now - review.created_at) / 1.hours).round} hours ago" %></span></p>
+        <p class="review-comment"><%= review.comment %></p>
+      <% end %>
+    </div>
+    <div class="col-6 ps-4 border-left-white">
+      <%= simple_form_for [@list, @review = Review.new(list: @list)] do |f| %>
+        <%= f.input :comment, input_html: { class: 'input-form' } %>
+        <%= f.input :rating, input_html: { class: 'input-form' } %>
+        <%= f.button :submit, class: "add-comment-btn" %>
+      <% end %>
+    </div>
   </div>
 </div>
