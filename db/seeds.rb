@@ -14,6 +14,7 @@ url_poster_base = "https://image.tmdb.org/t/p/original/"
 movies_serialized = URI.open(url_movies).read
 movies = JSON.parse(movies_serialized)
 
+List.destroy_all
 Movie.destroy_all
 
 movies["results"].each do |movie|

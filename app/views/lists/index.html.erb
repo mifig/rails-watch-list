@@ -12,14 +12,14 @@
       <div class="d-none movie-form" data-form-dropdown-target="form">
         <%= simple_form_for [@list = List.new] do |f| %>
           <%= f.input :name, input_html: { class: 'input-form' } %>
-          <%= f.input :image_url, input_html: { class: 'input-form' } %>
+          <%= f.input :photo, as: :file, input_html: { class: 'input-form' } %>
           <%= f.button :submit, class:"add-movie-btn form-btn" %>
         <% end %>
       </div>
     </div>
     
     <% @lists.each do |list| %>
-        <div class="list-card" style="background-image: url(<%= list.image_url %>)" data-aos="zoom-in" data-aos-duration="2000">
+        <div class="list-card" style="background-image: url('<%= cl_image_path list.photo.key, crop: :fill %>')" data-aos="zoom-in" data-aos-duration="2000">
           <%= link_to list.name, list_path(list) %>
         </div>
     <% end %>
