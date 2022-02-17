@@ -10,7 +10,7 @@
       <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a List</p>
       
       <div class="d-none movie-form" data-form-dropdown-target="form">
-        <%= simple_form_for [@list = List.new] do |f| %>
+        <%= simple_form_for [@list] do |f| %>
           <%= f.input :name, input_html: { class: 'input-form' } %>
           <%= f.input :photo, as: :file, input_html: { class: 'input-form' } %>
           <%= f.button :submit, class:"add-movie-btn form-btn" %>

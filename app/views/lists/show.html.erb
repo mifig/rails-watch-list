@@ -10,7 +10,7 @@
       <p class="add-movie-btn", data-form-dropdown-target="moviebutton">Add a Movie</p>
       
       <div class="d-none movie-form" data-form-dropdown-target="form">
-        <%= simple_form_for [@list, @bookmark = Bookmark.new] do |f| %>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
           <%= f.input :comment, input_html: { class: 'input-form' } %>
           <%= f.association :movie, input_html: { class: 'input-form' } %>
           <%= f.button :submit, class:"add-movie-btn form-btn" %>
@@ -35,7 +35,7 @@
       <% end %>
     </div>
     <div class="col-6 ps-4 border-left-white">
-      <%= simple_form_for [@list, @review = Review.new(list: @list)] do |f| %>
+      <%= simple_form_for [@list, @review] do |f| %>
         <%= f.input :comment, input_html: { class: 'input-form' } %>
         <%= f.input :rating, input_html: { class: 'input-form' } %>
         <%= f.button :submit, class: "add-comment-btn" %>
